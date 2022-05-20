@@ -5,9 +5,9 @@ class Catagory {
   final String title;
   final Color color;
 
-  Catagory(
-    this.id,
-    this.title,
-    this.color,
-  );
+  const Catagory({
+    required this.id,
+    required this.title,
+    this.color = Colors.orange,
+  });
 }
