@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/category_item.dart';
-import 'package:food_app/dummy_data.dart';
+import 'category_item.dart';
+import 'dummy_data.dart';
 
 class CatagoriesScreen extends StatelessWidget {
   
@@ -11,7 +11,7 @@ class CatagoriesScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Delimeals'),
       ),
-      body: GridView(
+      body: GridView(padding: EdgeInsets.all(25),
         children: DUMMY_CATAGORIES
             .map(
               (catData) => CategoryItem(
