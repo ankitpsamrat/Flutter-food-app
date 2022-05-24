@@ -1,14 +1,16 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: unused_element
 
-import '../widgets/meal_item.dart';
-import '../models/meal.dart';
+import 'package:flutter/material.dart';
+import '/widgets/meal_item.dart';
+import '/models/meal.dart';
 
 class CategoryMealsScreen extends StatefulWidget {
   static const routeName = '/category-meals';
-
   final List<Meal> availableMeals;
 
-  CategoryMealsScreen(this.availableMeals);
+  const CategoryMealsScreen(
+    this.availableMeals,
+  );
 
   @override
   _CategoryMealsScreenState createState() => _CategoryMealsScreenState();
@@ -21,7 +23,6 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
 
   @override
   void initState() {
-    // ...
     super.initState();
   }
 

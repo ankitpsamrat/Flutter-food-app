@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../screens/meal_detail_screen.dart';
-import '../models/meal.dart';
+import '/screens/meal_detail_screen.dart';
+import '/models/meal.dart';
 
 class MealItem extends StatelessWidget {
   final String id;
@@ -11,7 +10,7 @@ class MealItem extends StatelessWidget {
   final Complexity complexity;
   final Affordability affordability;
 
-  MealItem({
+  const MealItem({
     required this.id,
     required this.title,
     required this.imageUrl,
@@ -24,13 +23,10 @@ class MealItem extends StatelessWidget {
     switch (complexity) {
       case Complexity.Simple:
         return 'Simple';
-        break;
       case Complexity.Challenging:
         return 'Challenging';
-        break;
       case Complexity.Hard:
         return 'Hard';
-        break;
       default:
         return 'Unknown';
     }
@@ -40,13 +36,10 @@ class MealItem extends StatelessWidget {
     switch (affordability) {
       case Affordability.Affordable:
         return 'Affordable';
-        break;
       case Affordability.Pricey:
         return 'Pricey';
-        break;
       case Affordability.Luxurious:
         return 'Expensive';
-        break;
       default:
         return 'Unknown';
     }
