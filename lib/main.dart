@@ -1,13 +1,13 @@
 // ignore_for_file: deprecated_member_use, prefer_final_fields
 
 import 'package:flutter/material.dart';
-import 'dummy_data.dart';
-import 'models/meal.dart';
-import 'screens/categories_screen.dart';
-import 'screens/category_meals_screen.dart';
-import 'screens/filters_screen.dart';
-import 'screens/meal_detail_screen.dart';
-import 'screens/tabs_screen.dart';
+import '/dummy_data.dart';
+import '/models/meal.dart';
+import '/screens/categories_screen.dart';
+import '/screens/category_meals_screen.dart';
+import '/screens/filters_screen.dart';
+import '/screens/meal_detail_screen.dart';
+import '/screens/tabs_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -78,17 +78,18 @@ class _MyAppState extends State<MyApp> {
         canvasColor: Color.fromRGBO(255, 254, 229, 1),
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
-            bodyText1: TextStyle(
-              color: Color.fromRGBO(20, 51, 51, 1),
+              bodyText1: TextStyle(
+                color: Color.fromRGBO(20, 51, 51, 1),
+              ),
+              bodyText2: TextStyle(
+                color: Color.fromRGBO(20, 51, 51, 1),
+              ),
+              subtitle1: TextStyle(
+                fontSize: 20,
+                fontFamily: 'RobotoCondensed',
+                fontWeight: FontWeight.bold,
+              ),
             ),
-            bodyText2: TextStyle(
-              color: Color.fromRGBO(20, 51, 51, 1),
-            ),
-            subtitle1: TextStyle(
-              fontSize: 20,
-              fontFamily: 'RobotoCondensed',
-              fontWeight: FontWeight.bold,
-            )),
       ),
       // home: CategoriesScreen(),
       initialRoute: '/',

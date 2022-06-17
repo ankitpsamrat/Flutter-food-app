@@ -15,7 +15,9 @@ class MealDetailScreen extends StatelessWidget {
 
   Widget buildSectionTitle(BuildContext context, String text) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: EdgeInsets.symmetric(
+        vertical: 10,
+      ),
       child: Text(
         text,
         style: Theme.of(context).textTheme.headline6,
@@ -42,9 +44,12 @@ class MealDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final mealId = ModalRoute.of(context)!.settings.arguments as String;
     final selectedMeal = DUMMY_MEALS.firstWhere((meal) => meal.id == mealId);
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('${selectedMeal.title}'),
+        title: Text(
+          '${selectedMeal.title}',
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -63,11 +68,14 @@ class MealDetailScreen extends StatelessWidget {
                 itemBuilder: (ctx, index) => Card(
                   color: Theme.of(context).accentColor,
                   child: Padding(
-                      padding: EdgeInsets.symmetric(
-                        vertical: 5,
-                        horizontal: 10,
-                      ),
-                      child: Text(selectedMeal.ingredients[index])),
+                    padding: EdgeInsets.symmetric(
+                      vertical: 5,
+                      horizontal: 10,
+                    ),
+                    child: Text(
+                      selectedMeal.ingredients[index],
+                    ),
+                  ),
                 ),
                 itemCount: selectedMeal.ingredients.length,
               ),
@@ -79,7 +87,9 @@ class MealDetailScreen extends StatelessWidget {
                   children: [
                     ListTile(
                       leading: CircleAvatar(
-                        child: Text('# ${(index + 1)}'),
+                        child: Text(
+                          '# ${(index + 1)}',
+                        ),
                       ),
                       title: Text(
                         selectedMeal.steps[index],

@@ -6,7 +6,7 @@ class CategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView(
-      padding: const EdgeInsets.all(25),
+      padding: EdgeInsets.all(25),
       children: DUMMY_CATEGORIES
           .map(
             (catData) => CategoryItem(

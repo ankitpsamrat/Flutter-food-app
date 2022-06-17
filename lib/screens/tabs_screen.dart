@@ -43,7 +43,9 @@ class _TabsScreenState extends State<TabsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_pages[_selectedPageIndex]['title'].toString()),
+        title: Text(
+          _pages[_selectedPageIndex]['title'].toString(),
+        ),
       ),
       drawer: MainDrawer(),
       body: _pages[_selectedPageIndex]['page'] as Widget,
@@ -56,12 +58,16 @@ class _TabsScreenState extends State<TabsScreen> {
         items: [
           BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
-            icon: Icon(Icons.category),
+            icon: Icon(
+              Icons.category,
+            ),
             label: 'Categories',
           ),
           BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
-            icon: Icon(Icons.star),
+            icon: Icon(
+              Icons.star,
+            ),
             label: 'Favorites',
           ),
         ],
