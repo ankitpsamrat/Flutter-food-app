@@ -1,16 +1,17 @@
-// ignore_for_file: unused_element
+// ignore_for_file: unused_element, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 import '/widgets/meal_item.dart';
 import '/models/meal.dart';
 
 class CategoryMealsScreen extends StatefulWidget {
-  static const routeName = '/category-meals';
-  final List<Meal> availableMeals;
-
   const CategoryMealsScreen(
     this.availableMeals,
   );
+
+  final List<Meal> availableMeals;
+
+  static const routeName = '/category-meals';
 
   @override
   _CategoryMealsScreenState createState() => _CategoryMealsScreenState();

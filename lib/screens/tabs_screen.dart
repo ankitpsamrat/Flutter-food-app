@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 import '/models/meal.dart';
@@ -22,7 +22,7 @@ class _TabsScreenState extends State<TabsScreen> {
   void initState() {
     _pages = [
       {
-        'page': CategoriesScreen(),
+        'page': const CategoriesScreen(),
         'title': 'Categories',
       },
       {
@@ -47,7 +47,7 @@ class _TabsScreenState extends State<TabsScreen> {
           _pages[_selectedPageIndex]['title'].toString(),
         ),
       ),
-      drawer: MainDrawer(),
+      drawer: const MainDrawer(),
       body: _pages[_selectedPageIndex]['page'] as Widget,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
@@ -58,14 +58,14 @@ class _TabsScreenState extends State<TabsScreen> {
         items: [
           BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
-            icon: Icon(
+            icon: const Icon(
               Icons.category,
             ),
             label: 'Categories',
           ),
           BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,
-            icon: Icon(
+            icon: const Icon(
               Icons.star,
             ),
             label: 'Favorites',

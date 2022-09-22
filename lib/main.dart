@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use, prefer_final_fields
+// ignore_for_file: prefer_final_fields, deprecated_member_use, avoid_print
 
 import 'package:flutter/material.dart';
 import '/dummy_data.dart';
@@ -9,9 +9,11 @@ import '/screens/filters_screen.dart';
 import '/screens/meal_detail_screen.dart';
 import '/screens/tabs_screen.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -75,16 +77,16 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.pink,
         accentColor: Colors.amber,
-        canvasColor: Color.fromRGBO(255, 254, 229, 1),
+        canvasColor: const Color.fromRGBO(255, 254, 229, 1),
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
-              bodyText1: TextStyle(
+              bodyText1: const TextStyle(
                 color: Color.fromRGBO(20, 51, 51, 1),
               ),
-              bodyText2: TextStyle(
+              bodyText2: const TextStyle(
                 color: Color.fromRGBO(20, 51, 51, 1),
               ),
-              subtitle1: TextStyle(
+              subtitle1: const TextStyle(
                 fontSize: 20,
                 fontFamily: 'RobotoCondensed',
                 fontWeight: FontWeight.bold,
@@ -107,7 +109,7 @@ class _MyAppState extends State<MyApp> {
       },
       onUnknownRoute: (settings) {
         return MaterialPageRoute(
-          builder: (ctx) => CategoriesScreen(),
+          builder: (ctx) => const CategoriesScreen(),
         );
       },
     );

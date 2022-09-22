@@ -1,15 +1,18 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import '/widgets/main_drawer.dart';
 
 class FiltersScreen extends StatefulWidget {
-  static const routeName = '/filters';
-  final Function saveFilters;
-  final Map<String, bool> currentFilters;
-
   const FiltersScreen(
     this.currentFilters,
     this.saveFilters,
   );
+
+  final Function saveFilters;
+  final Map<String, bool> currentFilters;
+
+  static const routeName = '/filters';
 
   @override
   _FiltersScreenState createState() => _FiltersScreenState();
@@ -50,10 +53,10 @@ class _FiltersScreenState extends State<FiltersScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your Filters'),
+        title: const Text('Your Filters'),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.save),
+            icon: const Icon(Icons.save),
             onPressed: () {
               final selectedFilters = {
                 'gluten': _glutenFree,
@@ -63,14 +66,14 @@ class _FiltersScreenState extends State<FiltersScreen> {
               };
               widget.saveFilters(selectedFilters);
             },
-          )
+          ),
         ],
       ),
-      drawer: MainDrawer(),
+      drawer: const MainDrawer(),
       body: Column(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Text(
               'Adjust your meal selection.',
               style: Theme.of(context).textTheme.headline6,
@@ -84,11 +87,9 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   'Only include gluten-free meals.',
                   _glutenFree,
                   (newValue) {
-                    setState(
-                      () {
-                        _glutenFree = newValue;
-                      },
-                    );
+                    setState(() {
+                      _glutenFree = newValue;
+                    });
                   },
                 ),
                 _buildSwitchListTile(
@@ -96,11 +97,9 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   'Only include lactose-free meals.',
                   _lactoseFree,
                   (newValue) {
-                    setState(
-                      () {
-                        _lactoseFree = newValue;
-                      },
-                    );
+                    setState(() {
+                      _lactoseFree = newValue;
+                    });
                   },
                 ),
                 _buildSwitchListTile(
@@ -108,11 +107,9 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   'Only include vegetarian meals.',
                   _vegetarian,
                   (newValue) {
-                    setState(
-                      () {
-                        _vegetarian = newValue;
-                      },
-                    );
+                    setState(() {
+                      _vegetarian = newValue;
+                    });
                   },
                 ),
                 _buildSwitchListTile(
@@ -120,13 +117,11 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   'Only include vegan meals.',
                   _vegan,
                   (newValue) {
-                    setState(
-                      () {
-                        _vegan = newValue;
-                      },
-                    );
+                    setState(() {
+                      _vegan = newValue;
+                    });
                   },
-                )
+                ),
               ],
             ),
           ),
