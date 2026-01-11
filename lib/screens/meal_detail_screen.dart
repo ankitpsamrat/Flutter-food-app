@@ -1,13 +1,12 @@
-// ignore_for_file: use_key_in_widget_constructors, unnecessary_string_interpolations, deprecated_member_use
-
 import 'package:flutter/material.dart';
 import '/dummy_data.dart';
 
 class MealDetailScreen extends StatelessWidget {
-  const MealDetailScreen(
-    this.toggleFavorite,
-    this.isFavorite,
-  );
+  const MealDetailScreen({
+    Key? key,
+    required this.toggleFavorite,
+    required this.isFavorite,
+  }) : super(key: key);
 
   final Function toggleFavorite;
   final Function isFavorite;
@@ -22,35 +21,20 @@ class MealDetailScreen extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 10),
       child: Text(
         text,
-        style: Theme.of(context).textTheme.headline6,
+        style: Theme.of(context).textTheme.titleLarge,
       ),
-    );
-  }
-
-  Widget buildContainer(Widget child) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      margin: const EdgeInsets.all(10),
-      padding: const EdgeInsets.all(10),
-      height: 150,
-      width: 300,
-      child: child,
     );
   }
 
   @override
   Widget build(BuildContext context) {
     final mealId = ModalRoute.of(context)!.settings.arguments as String;
-    final selectedMeal = DUMMY_MEALS.firstWhere((meal) => meal.id == mealId);
+    final selectedMeal = dummyMeals.firstWhere((meal) => meal.id == mealId);
 
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '${selectedMeal.title}',
+          selectedMeal.title,
         ),
       ),
       body: SingleChildScrollView(
@@ -65,42 +49,41 @@ class MealDetailScreen extends StatelessWidget {
               ),
             ),
             buildSectionTitle(context, 'Ingredients'),
-            buildContainer(
-              ListView.builder(
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: ListView.builder(
+                itemCount: selectedMeal.ingredients.length,
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (ctx, index) => Card(
-                  color: Theme.of(context).accentColor,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 5,
-                      horizontal: 10,
-                    ),
+                    padding: const EdgeInsets.all(10),
                     child: Text(
                       selectedMeal.ingredients[index],
                     ),
                   ),
                 ),
-                itemCount: selectedMeal.ingredients.length,
               ),
             ),
             buildSectionTitle(context, 'Steps'),
-            buildContainer(
-              ListView.builder(
-                itemBuilder: (ctx, index) => Column(
-                  children: [
-                    ListTile(
-                      leading: CircleAvatar(
-                        child: Text(
-                          '# ${(index + 1)}',
-                        ),
-                      ),
-                      title: Text(
-                        selectedMeal.steps[index],
+            ListView.builder(
+              itemCount: selectedMeal.steps.length,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemBuilder: (ctx, index) => Column(
+                children: [
+                  ListTile(
+                    leading: CircleAvatar(
+                      child: Text(
+                        '# ${(index + 1)}',
                       ),
                     ),
-                    const Divider()
-                  ],
-                ),
-                itemCount: selectedMeal.steps.length,
+                    title: Text(
+                      selectedMeal.steps[index],
+                    ),
+                  ),
+                  const Divider()
+                ],
               ),
             ),
           ],

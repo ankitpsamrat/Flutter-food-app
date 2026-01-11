@@ -1,15 +1,13 @@
-// ignore_for_file: constant_identifier_names
-
 enum Complexity {
-  Simple,
-  Challenging,
-  Hard,
+  simple,
+  challenging,
+  hard,
 }
 
 enum Affordability {
-  Affordable,
-  Pricey,
-  Luxurious,
+  affordable,
+  pricey,
+  luxurious,
 }
 
 class Meal {

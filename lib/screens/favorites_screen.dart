@@ -1,13 +1,9 @@
-// ignore_for_file: use_key_in_widget_constructors
-
 import 'package:flutter/material.dart';
 import '/models/meal.dart';
 import '/widgets/meal_item.dart';
 
 class FavoritesScreen extends StatelessWidget {
-  const FavoritesScreen(
-    this.favoriteMeals,
-  );
+  const FavoritesScreen(this.favoriteMeals, {Key? key}) : super(key: key);
 
   final List<Meal> favoriteMeals;
 

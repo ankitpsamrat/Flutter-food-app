@@ -1,13 +1,12 @@
-// ignore_for_file: unused_element, use_key_in_widget_constructors
-
 import 'package:flutter/material.dart';
 import '/widgets/meal_item.dart';
 import '/models/meal.dart';
 
 class CategoryMealsScreen extends StatefulWidget {
-  const CategoryMealsScreen(
-    this.availableMeals,
-  );
+  const CategoryMealsScreen({
+    Key? key,
+    required this.availableMeals,
+  }) : super(key: key);
 
   final List<Meal> availableMeals;
 
@@ -42,11 +41,11 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
     super.didChangeDependencies();
   }
 
-  void _removeMeal(String mealId) {
-    setState(() {
-      displayedMeals.removeWhere((meal) => meal.id == mealId);
-    });
-  }
+  // void _removeMeal(String mealId) {
+  //   setState(() {
+  //     displayedMeals.removeWhere((meal) => meal.id == mealId);
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,3 @@
-// ignore_for_file: use_key_in_widget_constructors
-
 import 'package:flutter/material.dart';
 import '/screens/meal_detail_screen.dart';
 import '/models/meal.dart';
@@ -13,21 +11,22 @@ class MealItem extends StatelessWidget {
   final Affordability affordability;
 
   const MealItem({
+    Key? key,
     required this.id,
     required this.title,
     required this.imageUrl,
     required this.affordability,
     required this.complexity,
     required this.duration,
-  });
+  }) : super(key: key);
 
   String get complexityText {
     switch (complexity) {
-      case Complexity.Simple:
+      case Complexity.simple:
         return 'Simple';
-      case Complexity.Challenging:
+      case Complexity.challenging:
         return 'Challenging';
-      case Complexity.Hard:
+      case Complexity.hard:
         return 'Hard';
       default:
         return 'Unknown';
@@ -36,11 +35,11 @@ class MealItem extends StatelessWidget {
 
   String get affordabilityText {
     switch (affordability) {
-      case Affordability.Affordable:
+      case Affordability.affordable:
         return 'Affordable';
-      case Affordability.Pricey:
+      case Affordability.pricey:
         return 'Pricey';
-      case Affordability.Luxurious:
+      case Affordability.luxurious:
         return 'Expensive';
       default:
         return 'Unknown';

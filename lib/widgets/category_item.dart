@@ -1,14 +1,13 @@
-// ignore_for_file: use_key_in_widget_constructors
-
 import 'package:flutter/material.dart';
 import '/screens/category_meals_screen.dart';
 
 class CategoryItem extends StatelessWidget {
-  const CategoryItem(
-    this.id,
-    this.title,
-    this.color,
-  );
+  const CategoryItem({
+    Key? key,
+    required this.id,
+    required this.title,
+    required this.color,
+  }) : super(key: key);
 
   final String id;
   final String title;
@@ -34,12 +33,12 @@ class CategoryItem extends StatelessWidget {
         padding: const EdgeInsets.all(15),
         child: Text(
           title,
-          style: Theme.of(context).textTheme.headline6,
+          style: Theme.of(context).textTheme.titleLarge,
         ),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              color.withOpacity(0.7),
+              color.withValues(alpha: 0.7),
               color,
             ],
             begin: Alignment.topLeft,
